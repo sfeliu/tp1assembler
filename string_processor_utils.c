@@ -120,7 +120,7 @@ void string_proc_list_apply_print_trace(string_proc_list* list, string_proc_key*
 	string_proc_node* current_node = encode ? list->first : list->last;
 	while(current_node != NULL){
 		encode ? current_node->f(key) : current_node->g(key);
-		fprintf(file, "Applying function at [%p] to get '%s'\n", encode ? (void*)(&current_node->f) : (void*)(&current_node->g), key->value); 
+		fprintf(file, "Applying function at [%p] to get '%s'\n", encode ? current_node->f : current_node->g, key->value); 
 		current_node = encode ? current_node->next : current_node->previous;
 	}
 }
